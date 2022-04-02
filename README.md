@@ -1,6 +1,10 @@
 # pipedream
 Some pipedream code for my workflow
 
+## Branchs
+feature/en_US: English
+feature/zh_CN: 中文版本
+
 ## First of All
 Install official CLI tool  Link: https://pipedream.com/docs/cli/install/
 
