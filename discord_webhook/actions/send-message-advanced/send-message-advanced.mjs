@@ -2,10 +2,9 @@ import common from '../send-message-common.mjs'
 
 export default {
   ...common,
-  key: 'discord_webhook-send-message-advanced',
-  name: 'Send Message (Advanced)',
-  description:
-    'Send a simple or structured message (using embeds) to a Discord channel',
+  key: 'discord_webhook-send-message-advanced-zh-cn',
+  name: '发送消息高级版',
+  description: '给 Discord 简单的消息或者富文本消息',
   version: '1.0.0',
   type: 'action',
   props: {
@@ -22,9 +21,7 @@ export default {
     const { message, avatarURL, threadID, username, embeds } = this
 
     if (!message && !embeds) {
-      throw new Error(
-        'This action requires at least 1 message OR embeds object. Please enter one or the other above.'
-      )
+      throw new Error('必须填写 Message 或者 Embeds 之中的一项')
     }
 
     try {
@@ -36,7 +33,7 @@ export default {
         embeds,
         content: message,
       })
-      $.export('$summary', 'Message sent successfully')
+      $.export('$summary', '发送成功')
     } catch (err) {
       const unsentMessage = this.getUserInputProps()
       $.export('unsent', unsentMessage)

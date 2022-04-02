@@ -4,9 +4,9 @@ import fs from 'fs'
 
 export default {
   ...common,
-  key: 'discord_webhook-send-message-with-file',
-  name: 'Send Message With File',
-  description: 'Post a message with an attached file',
+  key: 'discord_webhook-send-message-with-file-zh-cn',
+  name: '给Discord发送带有附件的消息',
+  description: '发送带有附件的消息',
   version: '1.0.0',
   type: 'action',
   props: {
@@ -19,14 +19,14 @@ export default {
       type: 'string',
       label: 'File URL',
       description:
-        'The URL of the file to attach. Must specify either **File URL** or **File Path**.',
+        '文件的网址URL,必须填写**File URL** 或者 **File Path**之中的一项',
       optional: true,
     },
     filePath: {
       type: 'string',
       label: 'File Path',
       description:
-        'The path to the file, e.g. `/tmp/myFile.csv`. Must specify either **File URL** or **File Path**.',
+        '文件的物理绝对路径, 例如: `/tmp/myFile.csv`. 必须填写**File URL** 或者 **File Path**之中的一项',
       optional: true,
     },
   },
@@ -34,9 +34,7 @@ export default {
     const { message, avatarURL, threadID, username, fileUrl, filePath } = this
 
     if (!fileUrl && !filePath) {
-      throw new Error(
-        'This action requires either File URL or File Path. Please enter one or the other above.'
-      )
+      throw new Error('必须填写**File URL** 或者 **File Path**之中的一项')
     }
 
     const file = fileUrl
@@ -58,7 +56,7 @@ export default {
         file,
         content: message,
       })
-      $.export('$summary', 'Message sent successfully')
+      $.export('$summary', '消息发送成功 !!!')
     } catch (err) {
       const unsentMessage = this.getUserInputProps()
       $.export('unsent', unsentMessage)

@@ -9,31 +9,31 @@ export default {
       type: 'string',
       label: 'Message',
       description:
-        "Enter a simple message up to 2000 characters. This is the most commonly used field. However, it's optional if you pass embed content.",
+        '输入想要发送的信息(最多2000个字符). Message是最常用的字段. 但是你也可以通过embed发送信息',
     },
     embeds: {
       type: 'any',
       label: 'Embeds',
       description:
-        'Optionally pass an [array of embed objects](https://birdie0.github.io/discord-webhooks-guide/discord_webhook.html). E.g., ``{{ [{"description":"Use markdown including *Italic* **bold** __underline__ ~~strikeout~~ [hyperlink](https://google.com) `code`"}] }}``. To pass data from another step, enter a reference using double curly brackets (e.g., `{{steps.mydata.$return_value}}`).\nTip: Construct the `embeds` array in a Node.js code step, return it, and then pass the return value to this step.',
+        '这是除Message之外,另外一种发送消息的方式,Embeds更加高级,具体格式可以参考链接[array of embed objects](https://birdie0.github.io/discord-webhooks-guide/discord_webhook.html). 格式示例: ``{{ [{"description":"Use markdown including *Italic* **bold** __underline__ ~~strikeout~~ [hyperlink](https://google.com) `code`"}] }}``. ',
       optional: true,
     },
     username: {
       type: 'string',
       label: 'Username',
-      description: 'Overrides the current username of the webhook',
+      description: '机器人的名字,可以随意更改',
       optional: true,
     },
     avatarURL: {
       type: 'string',
       label: 'Avatar URL',
-      description: 'If used, it overrides the default avatar of the webhook',
+      description: '机器人的头像网址,可以随意更改',
       optional: true,
     },
     threadID: {
       type: 'string',
       label: 'Thread ID',
-      description: 'If provided, the message will be posted to this thread',
+      description: '可以指定消息发送到哪个Thread',
       optional: true,
     },
   },

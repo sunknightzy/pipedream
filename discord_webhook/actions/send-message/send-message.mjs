@@ -2,9 +2,9 @@ import common from '../send-message-common.mjs'
 
 export default {
   ...common,
-  key: 'discord_webhook-send-message',
-  name: 'Send Message',
-  description: 'Send a simple message to a Discord channel',
+  key: 'discord_webhook-send-message-zh-cn',
+  name: '发送简单消息',
+  description: '发送简单消息',
   version: '1.0.0',
   type: 'action',
   props: {
@@ -21,7 +21,7 @@ export default {
         username,
         content: message,
       })
-      $.export('$summary', 'Message sent successfully')
+      $.export('$summary', '发送成功')
     } catch (err) {
       const unsentMessage = this.getUserInputProps()
       $.export('unsent', unsentMessage)

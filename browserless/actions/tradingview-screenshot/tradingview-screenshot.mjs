@@ -1,9 +1,9 @@
 import puppeteer from 'puppeteer-core'
 
 export default {
-  key: 'tradingview-screenshot',
-  name: 'Take a Screenshot of TradingView',
-  version: '0.0.3',
+  key: 'tradingview-screenshot-zh-cn',
+  name: 'TradingView截图',
+  version: '0.0.5',
   type: 'action',
   props: {
     browserless: {
@@ -14,31 +14,30 @@ export default {
       type: 'string',
       label: 'ChartId',
       optional: false,
-      description:
-        "Enter the chart id you'd like to take a screenshot of tradingview",
+      description: '输入TradingView的ChartID',
     },
     exchange: {
       type: 'string',
       label: 'Exchange',
       optional: false,
-      description: "Enter the exchange name you'd like to visit",
+      description: '输入交易所的名称',
     },
     ticker: {
       type: 'string',
       label: 'Ticker',
       optional: false,
-      description: "Enter the ticker you'd like to visit",
+      description: '输入股票或者币种的名称',
     },
     interval: {
       type: 'string',
       label: 'Interval',
       optional: false,
-      description: "Enter the interval you'd like to visit",
+      description: '输入想要查看的周期',
     },
     theme: {
       type: 'string',
       label: 'Theme',
-      description: "Enter the theme you'd like to visit",
+      description: '选择主题颜色',
       optional: true,
       default: 'dark',
       options: ['default', 'dark'],
@@ -90,7 +89,7 @@ export default {
       height: 1600,
     })
     page.on('request', (request) => {
-      const requestUrl = request._url.split('?')[0].split('#')[0]
+      const requestUrl = request.url().split('?')[0].split('#')[0]
       if (
         blockedResourceTypes.indexOf(request.resourceType()) !== -1 ||
         skippedResources.some((resource) => requestUrl.indexOf(resource) !== -1)
